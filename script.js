@@ -2,6 +2,7 @@
 let ws = new WebSocket('wss://new-socket-server.herokuapp.com:443');
 
 
+
 ws.onopen = event => {
   console.log('Socket connection open');
   // alert('Successfully connected to socket server 🎉');
@@ -9,13 +10,19 @@ ws.onopen = event => {
 }
 
 ws.onmessage = (message) => {
-  if(message && message.data && message.data === 'ping') {
-    console.log('got ping')
-    ws.send('pong');
+  if(message && message.data) {
+    if(message.data === 'ping') {
+      console.log('got ping')
+      ws.send('pong');  
+      return
+    }
+    let data = JSON.parse(message.data);
+    if(data) {
+      console.log('got data', data);
+    }
   }
-  // let message1 = JSON.parse(message);
   
-  console.log('message', message1)
+  console.log('message', message)
 }
 
 ws.onerror = (error) => {
@@ -29,3 +36,9 @@ ws.onclose = (event) => {
 }
 
 
+let button = document.querySelector('.myButton')
+button.addEventListener('click', () => {
+  console.log('sent')
+  let x = {'button1': 1};
+  ws.send(JSON.stringify(x))
+})
