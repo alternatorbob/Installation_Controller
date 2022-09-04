@@ -36,9 +36,16 @@ ws.onclose = (event) => {
 }
 
 
-let button = document.querySelector('.myButton')
-button.addEventListener('click', () => {
-  console.log('sent')
-  let x = {'button1': 1};
-  ws.send(JSON.stringify(x))
-})
+let controllTD = document.querySelector('.controllTD') 
+controllTD.addEventListener('change', (event) => {
+  console.log(event)
+}, false);
+
+let controlledByTD = document.querySelector('.controlledByTD');
+
+// let button = document.querySelector('.myButton')
+// button.addEventListener('click', () => {
+//   console.log('sent')
+//   let x = {'button1': 1};
+//   ws.send(JSON.stringify(x))
+// })
