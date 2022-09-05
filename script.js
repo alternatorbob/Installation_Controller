@@ -1,16 +1,14 @@
 
 let ws = new WebSocket('wss://new-socket-server.herokuapp.com:443');
 
-
-let controllTD = document.querySelector('.controllTD') 
+let controllTD = document.querySelector('.controllTD') ;
 controllTD.addEventListener('input', (event) => {
-  console.log(event.target.value/100)
+  console.log(event.target.value / 100)
   let value = { 'slider1': controllTD.value / 100 }
   ws.send(JSON.stringify(value));
 }, false);
 
 let controlledByTD = document.querySelector('.controlledByTD');
-
 
 ws.onopen = event => {
   console.log('Socket connection open');
@@ -33,12 +31,11 @@ ws.onmessage = (message) => {
       console.log('got data', data);
     }
   }
-  
   console.log('message', message)
 }
 
 ws.onerror = (error) => {
-  console.log('Error in the connection', error);
+  console.error('Error in the connection', error);
   alert('error connecting socket server', error);
 }
 
@@ -46,13 +43,3 @@ ws.onclose = (event) => {
   console.log('Socket connection closed');
   alert('closing socket server');
 }
-
-
-
-
-// let button = document.querySelector('.myButton')
-// button.addEventListener('click', () => {
-//   console.log('sent')
-//   let x = {'button1': 1};
-//   ws.send(JSON.stringify(x))
-// })
