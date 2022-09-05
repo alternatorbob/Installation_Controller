@@ -153,8 +153,8 @@ body {
 }
 
 /* Button - Add it from the README instructions */
-button,
-input {
+/* button, */
+/* input {
   font-family: inherit;
   font-size: 100%;
   background: #FFFFFF;
@@ -163,7 +163,7 @@ input {
   border-radius: 4px;
   padding: 0.5rem 1rem;
   transition: 500ms;
-}
+} */
 
 /* Subheading */
 h2 {

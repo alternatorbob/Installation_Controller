@@ -27,6 +27,9 @@ ws.onmessage = (message) => {
     }
     let data = JSON.parse(message.data);
     if(data) {
+      if('slider1' in data) {
+        controlledByTD.value = data['slider1']*100;
+      }
       console.log('got data', data);
     }
   }
