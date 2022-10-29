@@ -19,6 +19,16 @@ transitionCheck.addEventListener(
   false
 );
 
+const manualTranstition = document.querySelector("#manual_transition");
+manualTranstition.addEventListener(
+  "click",
+  (event) => {
+    console.log(event)
+    ws.send(JSON.stringify({ button4: manualTranstition.checked }));
+  },
+  false
+);
+
 let controlledByTD = document.querySelector(".controlledByTD");
 
 ws.addEventListener("open", (event) => {
