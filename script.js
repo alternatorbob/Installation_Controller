@@ -13,7 +13,8 @@ const transitionCheck = document.querySelector(".switch");
 transitionCheck.addEventListener(
   "input",
   (event) => {
-    ws.send(JSON.stringify({ slider2: transitionCheck.value }));
+    console.log(transitionCheck.checked)
+    ws.send(JSON.stringify({ button3: transitionCheck.checked }));
   },
   false
 );
