@@ -24,7 +24,7 @@ manualTranstition.addEventListener(
   "click",
   (event) => {
     console.log(event)
-    ws.send(JSON.stringify({ button4: manualTranstition.checked }));
+    ws.send(JSON.stringify({ button4: manualTranstition.value++ }));
   },
   false
 );
