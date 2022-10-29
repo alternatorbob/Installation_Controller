@@ -9,15 +9,14 @@ controllTD.addEventListener(
   false
 );
 
-const transitionCheck = document.querySelector('.switch');
-transitionCheck.ddEventListener(
+const transitionCheck = document.querySelector(".switch");
+transitionCheck.addEventListener(
   "input",
   (event) => {
-    ws.send(JSON.stringify({ slider1: controllTD.value / 100 }));
+    ws.send(JSON.stringify({ slider2: transitionCheck.value }));
   },
   false
 );
-
 
 let controlledByTD = document.querySelector(".controlledByTD");
 
