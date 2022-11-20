@@ -6,22 +6,40 @@
     <link rel="icon" href="https://glitch.com/favicon.ico" />
     <title>Websocket Example</title>
     <link rel="stylesheet" href="/style.css" />
-    <script src="/script.js" defer></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script> -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/jquery.kontrol.js"></script>
+    <script src="js/xypad.js" defer></script>
+    <script src="js/script.js" defer></script>
   </head>
   <body>
-    <h2>Slider to controld TD</h2>
+    <!-- <h2>Slider to controld TD</h2>
     <input type="range" class="controllTD" />
 
     <h2>Slider controlled by TD</h2>
-    <input type="range" class="controlledByTD" />
+    <input type="range" class="controlledByTD" /> -->
+    <div class="container">
+      <div style="float: left; width: 200px; padding: 30px">
+        <div style="margin-bottom: 10px">Controller 1</div>
+        <fieldset class="pad" id="pad1" data-width="180" data-height="180">
+          <legend>XY Pad</legend>
+          x : <input type="number" name="slider1" value="27" /> y :
+          <input type="number" name="slider2" value="80" />
+        </fieldset>
+      </div>
 
-    <h2>Automatic Transitions</h2>
-
-    <input class="switch" type="checkbox" />
-    <span class="slider round"></span>
-
-
-    <h2>Manual Transition Button</h2>
-    <button type="button" id="manual_transition">transition</button>
+      <div style="float: left; width: 200px; padding: 30px">
+        <div style="margin-bottom: 10px">Controller 2</div>
+        <fieldset class="pad" id="pad2" data-width="180" data-height="180">
+          <legend>XY Pad</legend>
+          x : <input type="number" name="slider3" value="27" /> y :
+          <input type="number" name="slider4" value="80" />
+        </fieldset>
+      </div>
+    </div>
   </body>
 </html>

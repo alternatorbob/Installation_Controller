@@ -1,33 +1,39 @@
 let ws = new WebSocket("wss://touchdesigner-controller.herokuapp.com/:443");
 
-let controllTD = document.querySelector(".controllTD");
-controllTD.addEventListener(
-  "input",
-  (event) => {
-    ws.send(JSON.stringify({ slider1: controllTD.value / 100 }));
-  },
-  false
-);
+// let controllTD = document.querySelector(".controllTD");
+// console.log(controllTD);
+// controllTD.addEventListener(
+//   "input",
+//   (event) => {
+//     console.log(controllTD.value);
+//     ws.send(JSON.stringify({ slider1: controllTD.value / 100 }));
+//   },
+//   false
+// );
 
-const transitionCheck = document.querySelector(".switch");
-transitionCheck.addEventListener(
-  "input",
-  (event) => {
-    console.log(transitionCheck.checked)
-    ws.send(JSON.stringify({ button3: transitionCheck.checked }));
-  },
-  false
-);
+//this.change function on line 775 of jquery.kontrol.js in k.XY section
+function sendData(c, x, y) {
+  // console.log(x, y);
+  switch (c) {
+    case 1:
+      ws.send(JSON.stringify({ slider1: x }));
+      ws.send(JSON.stringify({ slider2: y }));
+      break;
+    case 2:
+      ws.send(JSON.stringify({ slider3: x }));
+      ws.send(JSON.stringify({ slider4: y }));
+  }
+}
 
-const manualTranstition = document.querySelector("#manual_transition");
-manualTranstition.addEventListener(
-  "click",
-  (event) => {
-    console.log(event)
-    ws.send(JSON.stringify({ button4: manualTranstition.value++ }));
-  },
-  false
-);
+// slider1.addEventListener(
+//   "change",
+//   (event) => {
+//     console.log(event);
+//     console.log(slider1.value);
+//     ws.send(JSON.stringify({ slider1: slider1.value / 100 }));
+//   },
+//   false
+// );
 
 let controlledByTD = document.querySelector(".controlledByTD");
 

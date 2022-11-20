@@ -1,8 +1,7 @@
-
 :root {
   --color-bg: white;
   --color-text-main: #000000;
-  --color-primary: #FFFF00;
+  --color-primary: #ffff00;
   --wrapper-height: 87vh;
   --image-max-width: 300px;
   --image-margin: 3rem;
@@ -10,10 +9,9 @@
   --font-family-header: "HK Grotesk";
 }
 
-
 /* Basic page style resets */
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 [hidden] {
   display: none !important;
@@ -35,10 +33,57 @@
 body {
   font-family: HK Grotesk;
   background-color: var(--color-bg);
+  padding: 0;
+  margin: 0;
+  text-rendering: optimizelegibility;
 }
-
 
 /* Subheading */
 h2 {
-  color: #2800FF;
+  color: #2800ff;
+}
+
+p {
+  font-size: 30px;
+  line-height: 30px;
+}
+div.demo {
+  text-align: center;
+  width: 300px;
+  float: left;
+}
+div.demo > p {
+  font-size: 20px;
+}
+
+.rack {
+  font: bold 14px;
+}
+.opt {
+  background: #fff;
+  -webkit-box-shadow: inset 0 4px 4px -2px #888, inset 0 -4px 4px -2px #888;
+  -moz-box-shadow: inset 0 4px 4px -2px #888, inset 0 -4px 4px -2px #888;
+  box-shadow: inset 0 4px 4px -2px #888, inset 0 -4px 4px -2px #888;
+}
+.opt div {
+  padding: 0px 10px;
+  color: #aaa;
+  font: 10px Arial;
+}
+select {
+  width: 100px;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 34px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.pad {
+  /* background-color: red; */
 }
