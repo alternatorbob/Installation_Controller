@@ -25,16 +25,6 @@ function sendData(c, x, y) {
   }
 }
 
-// slider1.addEventListener(
-//   "change",
-//   (event) => {
-//     console.log(event);
-//     console.log(slider1.value);
-//     ws.send(JSON.stringify({ slider1: slider1.value / 100 }));
-//   },
-//   false
-// );
-
 let controlledByTD = document.querySelector(".controlledByTD");
 
 ws.addEventListener("open", (event) => {
