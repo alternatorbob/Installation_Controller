@@ -1,0 +1,1 @@
+modified jquery.kontrol.js line 156 to take percentage instead

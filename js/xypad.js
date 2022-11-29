@@ -1,3 +1,7 @@
+const container = document.querySelector(".canvasContainer");
+console.log(container.offsetWidth);
+console.log(container.offsetHeight);
+
 $(function () {
   var $all = $(".dial, .bars1, .bars2, .pad"),
     $body = $("body");
@@ -7,6 +11,9 @@ $(function () {
       displayPrevious: false,
       min: -100,
       max: 100,
+      width: container.offsetWidth - 10,
+      height: container.offsetHeight - 50,
+
       fgColor: "#222222",
       bgColor: "#EEEEEE",
       change: function (value) {
@@ -16,11 +23,16 @@ $(function () {
     })
     .css({ border: "5px solid #BBB" });
 
+  console.log(container.offsetWidth);
+  console.log(container.offsetHeight);
+
   const pad2 = $("#pad2")
     .xy({
       displayPrevious: false,
       min: -100,
       max: 100,
+      width: container.offsetWidth - 10,
+      height: container.offsetHeight - 100,
       fgColor: "#222222",
       bgColor: "#EEEEEE",
       change: function (value) {
@@ -29,6 +41,37 @@ $(function () {
       },
     })
     .css({ border: "5px solid #BBB" });
+
+  function fitToContainer(canvas) {
+    canvas.style.width = "100%";
+    canvas.style.height = "100%";
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  // let canvases = document.querySelectorAll("canvas");
+  // canvases.forEach((c) => {
+  //   fitToContainer(c);
+  //   const p = c.parentElement;
+  //   const cC = document.querySelector(".canvasContainer");
+  //   console.log(cC);
+
+  //   p.style.width = "97%";
+  //   p.style.height = "89%";
+  //   console.log(p.offsetWidth);
+
+  //   //   c.style.width = "100%";
+  //   //   c.style.height = "100%";
+  //   //   // ...then set the internal size to match
+  //   //   c.width = cC.offsetWidth;
+  //   //   c.height = cC.offsetHeight;
+
+  //   c.width = p.offsetWidth;
+  //   c.height = p.offsetHeight;
+
+  //   //   // c.offsetWidth = c.parentElement.style.width
+  //   //   // c.offsetHeight = c.parentElement.style.height
+  // });
 
   $("#displayPrevious").bind("change", function (e) {
     $all.trigger("configure", {
