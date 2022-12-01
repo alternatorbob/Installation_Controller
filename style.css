@@ -149,3 +149,8 @@ fieldset {
   color: white;
   pointer-events: none;
 }
+
+#connecting {
+  color: "white";
+  background-color: "white";
+}

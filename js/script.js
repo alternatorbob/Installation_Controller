@@ -29,6 +29,8 @@ let controlledByTD = document.querySelector(".controlledByTD");
 
 ws.addEventListener("open", (event) => {
   console.log("Socket connection open");
+  document.querySelector("#connecting").style.display = "none";
+  setupController();
   // alert('Successfully connected to socket server 🎉');
   ws.send("pong");
 });

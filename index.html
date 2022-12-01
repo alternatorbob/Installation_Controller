@@ -22,18 +22,33 @@
     <h2>Slider controlled by TD</h2>
     <input type="range" class="controlledByTD" /> -->
     <div class="container">
-      <div class="canvasContainer">
+      <div id="connecting">Loading... Please wait</div>
+      <div class="canvasContainer" style="display: none">
         <!-- <div style="margin-bottom: 10px">Controller 1</div> -->
-        <fieldset disabled class="pad" id="pad1" data-width="180" data-height="180" style="color: white">
+        <fieldset
+          disabled
+          class="pad"
+          id="pad1"
+          data-width="180"
+          data-height="180"
+          style="color: white"
+        >
           <legend>XY Pad</legend>
           x : <input type="number" name="slider1" value="27" /> y :
           <input type="number" name="slider2" value="80" />
         </fieldset>
       </div>
 
-      <div class="canvasContainer">
+      <div class="canvasContainer" style="display: none">
         <!-- <div style="margin-bottom: 10px">Controller 2</div> -->
-        <fieldset disabled class="pad" id="pad2" data-width="180" data-height="180" style="color: white">
+        <fieldset
+          disabled
+          class="pad"
+          id="pad2"
+          data-width="180"
+          data-height="180"
+          style="color: white"
+        >
           <legend>XY Pad</legend>
           x : <input type="number" name="slider3" value="27" /> y :
           <input type="number" name="slider4" value="80" />
