@@ -146,7 +146,6 @@
       !this.o.displayInput && this.$.hide();
 
       // const canvSizer = $('.container:first-child')
-      // console.log(canvSizer);
       // this.$c = $(`<canvas width ${ this.o.width}% height ${this.o.height}% ></canvas>`);
       this.$c = $(
         '<canvas width="' +
@@ -155,7 +154,6 @@
           this.o.height +
           'px"></canvas>'
       );
-      console.log(this.$c);
       // this.$c = $('<canvas width="' +
       //                 this.o.width + 'px" height="' +
       //                 this.o.height + 'px"></canvas>');
@@ -699,17 +697,20 @@
       if (this.o.displayInput) {
         var s = this;
         this.$.css({
-          "margin-top": "-30px",
+          "margin-top": "-27%",
+          position: "absolute",
+          "z-index": "1000",
           border: 0,
-          font: "11px Arial",
+          color: "grey",
+          font: "13px Arial",
         });
 
         this.i.each(function () {
           $(this).css({
-            width: s.o.width / 4 + "px",
+            width: s.o.width + "px",
             border: 0,
             background: "none",
-            color: s.o.fgColor,
+            color: "white",
             padding: "0px",
             "-webkit-appearance": "none",
           });
@@ -765,18 +766,24 @@
       if (this.o.displayPrevious) {
         c.beginPath();
         c.lineWidth = this.cursor;
+        // c.strokeStyle = 'red';
         c.strokeStyle = this.pColor;
+
         c.moveTo(this.p[0], this.p[1] + this.cur2);
         c.lineTo(this.p[0], this.p[1] - this.cur2);
         c.stroke();
         r = this.cv[0] == this.v[0] && this.cv[1] == this.v[1];
       }
-
+      console.log(this.$c[0].width);
+      c.translate(this.$c[0].width / 1000 - 10 , this.$c[0].height / 1000 - 10)
       c.beginPath();
-      c.lineWidth = this.cursor;
-      c.strokeStyle = r ? this.o.fgColor : this.fgColor;
-      c.moveTo(this.m[0], this.m[1] + this.cur2);
-      c.lineTo(this.m[0], this.m[1] - this.cur2);
+      c.lineWidth = this.cursor ;
+      // c.strokeStyle = r ? this.o.fgColor : this.fgColor;
+      c.strokeStyle = "white";
+      c.rect(this.m[0], this.m[1], 16, 16)
+      // c.roundRect(this.m[0], this.m[1], 20, 20, 1)
+      // c.moveTo(this.m[0], this.m[1] + this.cur2 * 2);
+      // c.lineTo(this.m[0], this.m[1] - this.cur2 * 2);
       c.stroke();
     };
   };
@@ -860,7 +867,7 @@
 
         this.i.each(function () {
           $(this).css({
-            width: s.colWidth - 4 + s.o.spacing + "px",
+            width: s.colWidth - +s.o.spacing + "px",
             border: 0,
             background: "none",
             font: s.fontSize + "px Arial", //this.fontSize

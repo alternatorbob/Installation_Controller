@@ -1,6 +1,5 @@
 const container = document.querySelector(".canvasContainer");
-console.log(container.offsetWidth);
-console.log(container.offsetHeight);
+let root = document.documentElement;
 
 $(function () {
   var $all = $(".dial, .bars1, .bars2, .pad"),
@@ -11,8 +10,8 @@ $(function () {
       displayPrevious: false,
       min: -100,
       max: 100,
-      width: container.offsetWidth - 10,
-      height: container.offsetHeight - 50,
+      width: container.offsetWidth - 1,
+      height: container.offsetHeight - 40,
 
       fgColor: "#222222",
       bgColor: "#EEEEEE",
@@ -21,18 +20,15 @@ $(function () {
         console.log("change : ", value);
       },
     })
-    .css({ border: "5px solid #BBB" });
-
-  console.log(container.offsetWidth);
-  console.log(container.offsetHeight);
+    .css({ border: ".5px solid #BBB" });
 
   const pad2 = $("#pad2")
     .xy({
       displayPrevious: false,
       min: -100,
       max: 100,
-      width: container.offsetWidth - 10,
-      height: container.offsetHeight - 100,
+      width: container.offsetWidth - 1,
+      height: container.offsetHeight - 40,
       fgColor: "#222222",
       bgColor: "#EEEEEE",
       change: function (value) {
@@ -40,7 +36,7 @@ $(function () {
         sendData(2, value[0], value[1]);
       },
     })
-    .css({ border: "5px solid #BBB" });
+    .css({ border: ".5px solid #BBB" });
 
   function fitToContainer(canvas) {
     canvas.style.width = "100%";
@@ -49,29 +45,13 @@ $(function () {
     canvas.height = canvas.offsetHeight;
   }
 
-  // let canvases = document.querySelectorAll("canvas");
-  // canvases.forEach((c) => {
-  //   fitToContainer(c);
-  //   const p = c.parentElement;
-  //   const cC = document.querySelector(".canvasContainer");
-  //   console.log(cC);
+  const canvases = document.querySelectorAll("canvas");
+  canvases.forEach((c) => {
+    root.style.setProperty("--myWidth", c.width + "px");
+    root.style.setProperty("--myHeight", c.height + "px");
 
-  //   p.style.width = "97%";
-  //   p.style.height = "89%";
-  //   console.log(p.offsetWidth);
-
-  //   //   c.style.width = "100%";
-  //   //   c.style.height = "100%";
-  //   //   // ...then set the internal size to match
-  //   //   c.width = cC.offsetWidth;
-  //   //   c.height = cC.offsetHeight;
-
-  //   c.width = p.offsetWidth;
-  //   c.height = p.offsetHeight;
-
-  //   //   // c.offsetWidth = c.parentElement.style.width
-  //   //   // c.offsetHeight = c.parentElement.style.height
-  // });
+    console.log(c.width, c.height);
+  });
 
   $("#displayPrevious").bind("change", function (e) {
     $all.trigger("configure", {

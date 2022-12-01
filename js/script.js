@@ -43,12 +43,12 @@ ws.addEventListener("message", (message) => {
     let data = JSON.parse(message.data);
     if (data) {
       if ("slider1" in data) {
-        controlledByTD.value = data["slider1"] * 100;
+        // controlledByTD.value = data["slider1"] * 100;
       }
-      console.log("got data", data);
+      // console.log("got data", data);
     }
   }
-  console.log("message", message);
+  // console.log("message", message);
 });
 
 ws.addEventListener("error", (error) => {
