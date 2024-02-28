@@ -1,4 +1,5 @@
-let ws = new WebSocket("wss://touchdesigner-controller.herokuapp.com/:443");
+//let ws = new WebSocket("wss://touchdesigner-controller.herokuapp.com/:443");
+let ws = new WebSocket("https://master--installation-controller.netlify.app/");
 
 // let controllTD = document.querySelector(".controllTD");
 // console.log(controllTD);
